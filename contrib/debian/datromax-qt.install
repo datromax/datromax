@@ -1,0 +1,6 @@
+usr/local/bin/datromax-qt usr/bin
+share/pixmaps/datromax32.xpm usr/share/pixmaps
+share/pixmaps/datromax16.xpm usr/share/pixmaps
+share/pixmaps/datromax128.png usr/share/pixmaps
+debian/datromax-qt.desktop usr/share/applications
+debian/datromax-qt.protocol usr/share/kde4/services/

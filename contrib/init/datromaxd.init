@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  datromaxd The Datromax Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: datromaxd
+# processname: datromaxd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/datromaxd, see below
+if [ -f /etc/sysconfig/datromaxd ]; then
+        . /etc/sysconfig/datromaxd
+fi
+
+RETVAL=0
+
+prog=datromaxd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/datromaxd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/datromaxd}
+
+# datromaxd defaults to /usr/bin/datromaxd, override with BITCOIND_BIN
+datromaxd=${BITCOIND_BIN-/usr/bin/datromaxd}
+
+# datromaxd opts default to -disablewallet, override with BITCOIND_OPTS
+datromaxd_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $datromaxd $datromaxd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

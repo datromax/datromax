@@ -1,0 +1,22 @@
+[Unit]
+Description=Datromax's distributed currency daemon
+After=network.target
+
+[Service]
+User=datromaxcore
+Group=datromaxcore
+
+Type=forking
+PIDFile=/var/lib/datromaxd/datromaxd.pid
+ExecStart=/usr/bin/datromaxd -daemon -pid=/var/lib/datromaxd/datromaxd.pid \
+-conf=/etc/datromaxcore/datromax.conf -datadir=/var/lib/datromaxd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

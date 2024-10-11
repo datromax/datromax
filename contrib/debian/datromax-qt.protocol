@@ -1,0 +1,11 @@
+[Protocol]
+exec=datromax-qt '%u'
+protocol=datromax
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
