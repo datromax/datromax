@@ -388,7 +388,7 @@ class Compaction {
 
   // level_ptrs_ holds indices into input_version_->levels_: our state
   // is that we are positioned at one of the file ranges for each
-  // higher level than the ones involved in this compaction (i.e. for
+  // higher level than the ones idatromaxd in this compaction (i.e. for
   // all L >= level_ + 2).
   size_t level_ptrs_[config::kNumLevels];
 };

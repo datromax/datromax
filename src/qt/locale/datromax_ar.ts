@@ -3900,7 +3900,7 @@ https://www.transifex.com/projects/p/datromax/</source>
       <translation>نوع المعاملات</translation>
     </message>
     <message>
-      <source>Whether or not a watch-only address is involved in this transaction.</source>
+      <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
       <translation>ما إذا كان العنوان المشاهدة فقط متضمنًا في هذه المعاملة أم لا.</translation>
     </message>
     <message>

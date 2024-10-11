@@ -3843,7 +3843,7 @@ Nota: Het bericht zal niet verzonden worden met de betaling over het Datromax ne
       <translation>Type transactie.</translation>
     </message>
     <message>
-      <source>Whether or not a watch-only address is involved in this transaction.</source>
+      <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
       <translation>Of er een alleen-bekijken-adres is betrokken bij deze transactie.</translation>
     </message>
     <message>

@@ -186,24 +186,24 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
         // Check if all inputs are from wallet and if output are to wallet
         bool fAllFromMeDenom = true;
         int nFromMe = 0;
-        bool inputInvolvesWatchAddress = false;
-        bool outputInvolvesWatchAddress = false;
+        bool inputIdatromaxsWatchAddress = false;
+        bool outputIdatromaxsWatchAddress = false;
         isminetype fAllFromMe = ISMINE_SPENDABLE;
         for (isminetype mine : wtx->txin_is_mine)
         {
-            if (mine & ISMINE_WATCH_ONLY) inputInvolvesWatchAddress = true;
+            if (mine & ISMINE_WATCH_ONLY) inputIdatromaxsWatchAddress = true;
             if (fAllFromMe > mine) fAllFromMe = mine;
         }
 
         isminetype fAllToMe = ISMINE_SPENDABLE;
         for (isminetype mine : wtx->txout_is_mine)
         {
-            if (mine & ISMINE_WATCH_ONLY) outputInvolvesWatchAddress = true;
+            if (mine & ISMINE_WATCH_ONLY) outputIdatromaxsWatchAddress = true;
             if (fAllToMe > mine) fAllToMe = mine;
         }
 
         // LogPrintf("TransactionRecord::%s TxId: %s vOutIdx: %d, CoinBase: %d, AllFromMe: %d, AllToMe: %d, inputWatch: %d, outputWatch: %d\n",
-        //         __func__, hash.ToString(), vOutIdx, wtx->is_coinbase, fAllFromMe, fAllToMe, inputInvolvesWatchAddress, outputInvolvesWatchAddress);
+        //         __func__, hash.ToString(), vOutIdx, wtx->is_coinbase, fAllFromMe, fAllToMe, inputIdatromaxsWatchAddress, outputIdatromaxsWatchAddress);
 
         // A/B Generated:
         // A: coinbase -> self    Generated
@@ -211,7 +211,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
         if (wtx->is_coinbase && mine)
         {
             sub.type = TransactionRecord::Generated;
-            sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
+            sub.idatromaxsWatchAddress = mine & ISMINE_WATCH_ONLY;
             parts.append(sub);
             continue;
         }
@@ -224,7 +224,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
             CAmount nChange = wtx->change;
             sub.debit = -(nDebit - nChange);
             sub.credit = nCredit - nChange;
-            sub.involvesWatchAddress = inputInvolvesWatchAddress;
+            sub.idatromaxsWatchAddress = inputIdatromaxsWatchAddress;
 
             if (wtx->is_denominate)
             {
@@ -281,7 +281,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
             sub.type = isFuture ? TransactionRecord::FutureSend : (validDestination ? TransactionRecord::SendToAddress : TransactionRecord::SendToOther);
 
             // Sent from wallet:
-            sub.involvesWatchAddress = false;
+            sub.idatromaxsWatchAddress = false;
             sub.debit = -(txout.nValue + nTxFee);
             nTxFee = 0; // Add fee to first output
             sub.credit = 0;
@@ -290,7 +290,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
             // If received by Watch, add a receive transaction on the watched side:
             if (mine & ISMINE_WATCH_ONLY)
             {
-                sub.involvesWatchAddress = true;
+                sub.idatromaxsWatchAddress = true;
                 sub.type = isFuture ? TransactionRecord::FutureReceive : (validDestination ? TransactionRecord::RecvWithAddress : TransactionRecord::RecvFromOther);
                 sub.debit = 0;
                 sub.credit = txout.nValue;
@@ -306,7 +306,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
         if (!(debitMineTypes & ISMINE_SPENDABLE) && mine & ISMINE_SPENDABLE)
         {
             // Generate one or two records - receive with wallet, sent by watched:
-            sub.involvesWatchAddress = false;
+            sub.idatromaxsWatchAddress = false;
             sub.type = isFuture ? TransactionRecord::FutureReceive : (validDestination ? TransactionRecord::RecvWithAddress : TransactionRecord::RecvFromOther);
 
             // Received with wallet:
@@ -316,7 +316,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
             // If sent by Watch, add a sent transaction on the watched side:
             if (debitMineTypes & ISMINE_WATCH_ONLY)
             {
-                sub.involvesWatchAddress = true;
+                sub.idatromaxsWatchAddress = true;
                 sub.type = isFuture ? TransactionRecord::FutureSend : (validDestination ? TransactionRecord::SendToAddress : TransactionRecord::SendToOther);
                 sub.debit = -(txout.nValue + nTxFee);
                 nTxFee = 0; // Add fee to first output
@@ -332,10 +332,10 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
         // J: other    -> watched Send from other address to watched
         if (!(debitMineTypes & ISMINE_SPENDABLE) && !(mine & ISMINE_SPENDABLE))
         {
-            sub.involvesWatchAddress = true;
+            sub.idatromaxsWatchAddress = true;
 
             // Sent by watched address:
-            if (inputInvolvesWatchAddress)
+            if (inputIdatromaxsWatchAddress)
             {
                 sub.type = isFuture ? TransactionRecord::FutureSend : TransactionRecord::SendToOther;
                 sub.debit = -(txout.nValue + nTxFee);
@@ -345,9 +345,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(interfaces::Wal
             }
 
             // If received by Watch, add a receive transaction on the watched side:
-            if (outputInvolvesWatchAddress && mine)
+            if (outputIdatromaxsWatchAddress && mine)
             {
-                sub.involvesWatchAddress = true;
+                sub.idatromaxsWatchAddress = true;
                 sub.type = isFuture ? TransactionRecord::FutureReceive : TransactionRecord::RecvWithAddress;
                 sub.debit = 0;
                 sub.credit = txout.nValue;

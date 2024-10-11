@@ -392,7 +392,7 @@ the metadata do not force us to fetch and cache bulky file contents.
 ### Filters
 
 Because of the way leveldb data is organized on disk, a single `Get()` call may
-involve multiple reads from disk. The optional FilterPolicy mechanism can be
+idatromax multiple reads from disk. The optional FilterPolicy mechanism can be
 used to reduce the number of disk reads substantially.
 
 ```c++

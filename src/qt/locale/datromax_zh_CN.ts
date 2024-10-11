@@ -3826,7 +3826,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
       <translation>交易类别。</translation>
     </message>
     <message>
-      <source>Whether or not a watch-only address is involved in this transaction.</source>
+      <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
       <translation>决定是否有一个仅限查看的地址参与这次交易.</translation>
     </message>
     <message>

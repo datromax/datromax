@@ -39,10 +39,10 @@ bool TransactionFilterProxy::filterAcceptsRow(int sourceRow, const QModelIndex &
     if (!(TYPE(type) & typeFilter))
         return false;
 
-    bool involvesWatchAddress = index.data(TransactionTableModel::WatchonlyRole).toBool();
-    if (involvesWatchAddress && watchOnlyFilter == WatchOnlyFilter_No)
+    bool idatromaxsWatchAddress = index.data(TransactionTableModel::WatchonlyRole).toBool();
+    if (idatromaxsWatchAddress && watchOnlyFilter == WatchOnlyFilter_No)
         return false;
-    if (!involvesWatchAddress && watchOnlyFilter == WatchOnlyFilter_Yes)
+    if (!idatromaxsWatchAddress && watchOnlyFilter == WatchOnlyFilter_Yes)
         return false;
     qint64 datetime = index.data(TransactionTableModel::DateRoleInt).toLongLong();
     if (datetime < dateFrom || datetime > dateTo)

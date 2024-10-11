@@ -153,7 +153,7 @@ public:
     TransactionStatus status;
 
     /** Whether the transaction was sent/received with a watch-only address */
-    bool involvesWatchAddress;
+    bool idatromaxsWatchAddress;
 
     /// Label
     QString label;

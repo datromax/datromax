@@ -3842,7 +3842,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
         <translation>Tipo de transacción.</translation>
     </message>
     <message>
-        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
         <translation>Si una dirección de sólo vigilancia toma parte o no en esta transacción.</translation>
     </message>
     <message>

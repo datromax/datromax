@@ -3855,7 +3855,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
       <translation>Tipul tranzacţiei.</translation>
     </message>
     <message>
-      <source>Whether or not a watch-only address is involved in this transaction.</source>
+      <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
       <translation>Indiferent dacă sau nu o adresa doar-suăpraveghere este implicată în această tranzacţie.</translation>
     </message>
     <message>

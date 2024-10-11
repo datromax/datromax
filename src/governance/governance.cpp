@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2019 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1019,8 +1019,8 @@ int CGovernanceManager::RequestGovernanceObjectVotes(const std::vector<CNode*>& 
         }
         bool fAsked = false;
         for (const auto& pnode : vNodesCopy) {
-            // Don't try to sync any data from outbound non-relay "masternode" connections.
-            // Inbound connection this early is most likely a "masternode" connection
+            // Don't try to sync any data from outbound non-relay "smartnode" connections.
+            // Inbound connection this early is most likely a "smartnode" connection
             // initiated from another node, so skip it too.
             if (!pnode->CanRelay() || (fSmartnodeMode && pnode->fInbound)) continue;
             // only use up to date peers

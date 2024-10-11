@@ -3822,7 +3822,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
       <translation>トランザクションの種類</translation>
     </message>
     <message>
-      <source>Whether or not a watch-only address is involved in this transaction.</source>
+      <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
       <translation>ウォッチオンリーのアドレスがこのトランザクションに含まれているかどうか</translation>
     </message>
     <message>

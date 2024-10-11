@@ -107,6 +107,31 @@ void CChainParams::UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64
     }
 }
 
+static void FindMainNetGenesisBlock(uint32_t nTime, uint32_t nBits, const char* network)
+{
+    CBlock block = CreateGenesisBlock(nTime, 0, nBits, 4, 5000 * COIN);
+    arith_uint256 bnTarget;
+    bnTarget.SetCompact(block.nBits);
+    for (uint32_t nNonce = 0; nNonce < UINT32_MAX; nNonce++) {
+        block.nNonce = nNonce;
+        uint256 hash = block.GetPOWHash();
+        if (nNonce % 48 == 0) {
+        	printf("\nrnonce=%d, pow is %s\n", nNonce, hash.GetHex().c_str());
+        }
+        if (UintToArith256(hash) <= bnTarget) {
+        	printf("\n%s net\n", network);
+        	printf("\ngenesis is %s\n", block.ToString().c_str());
+        	printf("\npow is %s\n", hash.GetHex().c_str());
+        	printf("\ngenesisNonce is %d\n", nNonce);
+        	std::cout << "Genesis Merkle " << block.hashMerkleRoot.GetHex() << std::endl;
+        	return;
+        }
+    }
+    // This is very unlikely to happen as we start the devnet with a very low difficulty. In many cases even the first
+    // iteration of the above loop will give a result already
+    error("%sNetGenesisBlock: could not find %s genesis block",network, network);
+    assert(false);
+}
 
 
 //void CChainParams::UpdateDIP3Parameters(int nActivationHeight, int nEnforcementHeight)

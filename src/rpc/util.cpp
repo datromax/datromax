@@ -55,7 +55,7 @@ CScript CreateMultisigRedeemscript(const int required, const std::vector<CPubKey
         throw JSONRPCError(RPC_INVALID_PARAMETER, strprintf("not enough keys supplied (got %u keys, but need at least %d to redeem)", pubkeys.size(), required));
     }
     if (pubkeys.size() > 16) {
-        throw JSONRPCError(RPC_INVALID_PARAMETER, "Number of keys involved in the multisignature address creation > 16\nReduce the number");
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Number of keys idatromaxd in the multisignature address creation > 16\nReduce the number");
     }
 
     CScript result = GetScriptForMultisig(required, pubkeys);

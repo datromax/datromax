@@ -202,11 +202,7 @@ void TestChaCha20(const std::string &hex_message, const std::string &hexkey, uin
     assert(hex_message.empty() || m.size() == out.size());
 
     // perform the ChaCha20 round(s), if message is provided it will output the encrypted ciphertext otherwise the keystream
-    if (!hex_message.empty()) {
-        rng.Crypt(m.data(), outres.data(), outres.size());
-    } else {
-        rng.Keystream(outres.data(), outres.size());
-    }
+    rng.Keystream(outres.data(), outres.size());
     BOOST_CHECK(out == outres);
     if (!hex_message.empty()) {
         // Manually XOR with the keystream and compare the output

@@ -3842,7 +3842,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
         <translation>Tipo de transação.</translation>
     </message>
     <message>
-        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
         <translation>Mostrar ou não endereços monitorados na lista de transações.</translation>
     </message>
     <message>
@@ -4125,7 +4125,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
     </message>
     <message>
         <source>The %s developers</source>
-        <translation>Desenvolvedores do %s</translation>
+        <translation>Desedatromaxdores do %s</translation>
     </message>
 </context>
 </TS>

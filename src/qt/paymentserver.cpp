@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2020 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -522,7 +522,7 @@ bool PaymentServer::processPaymentRequest(const PaymentRequestPlus& request, Sen
             return false;
         }
 
-        // Make sure any payment requests involved are still valid.
+        // Make sure any payment requests idatromaxd are still valid.
         // This is re-checked just before sending coins in WalletModel::sendCoins().
         if (verifyExpired(request.getDetails())) {
             Q_EMIT message(tr("Payment request rejected"), tr("Payment request expired."),

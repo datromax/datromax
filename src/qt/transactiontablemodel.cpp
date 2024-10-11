@@ -430,7 +430,7 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord *wtx, b
     QString watchAddress;
     if (tooltip) {
         // Mark transactions involving watch-only addresses by adding " (watch-only)"
-        watchAddress = wtx->involvesWatchAddress ? QString(" (") + tr("watch-only") + QString(")") : "";
+        watchAddress = wtx->idatromaxsWatchAddress ? QString(" (") + tr("watch-only") + QString(")") : "";
     }
 
     switch(wtx->type)
@@ -558,7 +558,7 @@ QVariant TransactionTableModel::txStatusDecoration(const TransactionRecord *wtx)
 
 QVariant TransactionTableModel::txWatchonlyDecoration(const TransactionRecord *wtx) const
 {
-    if (wtx->involvesWatchAddress)
+    if (wtx->idatromaxsWatchAddress)
         return GUIUtil::getIcon("eye");
     else
         return QVariant();
@@ -623,7 +623,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case Type:
             return formatTxType(rec);
         case Watchonly:
-            return (rec->involvesWatchAddress ? 1 : 0);
+            return (rec->idatromaxsWatchAddress ? 1 : 0);
         case ToAddress:
             return formatTxToAddress(rec, true);
         case Amount:
@@ -655,7 +655,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
     case DateRoleInt:
         return qint64(rec->time);
     case WatchonlyRole:
-        return rec->involvesWatchAddress;
+        return rec->idatromaxsWatchAddress;
     case WatchonlyDecorationRole:
         return txWatchonlyDecoration(rec);
     case LongDescriptionRole:
@@ -730,7 +730,7 @@ QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientat
             case Type:
                 return tr("Type of transaction.");
             case Watchonly:
-                return tr("Whether or not a watch-only address is involved in this transaction.");
+                return tr("Whether or not a watch-only address is idatromaxd in this transaction.");
             case ToAddress:
                 return tr("User-defined intent/purpose of the transaction.");
             case Amount:

@@ -1,6 +1,6 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Copyright (c) 2014-2018 The Dash Core developers
-# Copyright (c) 2020-2022 The Datromax developers
+# Copyright (c) 2023-2024 The Datromax developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -437,74 +437,68 @@ crypto_libdatromax_crypto_base_a_SOURCES = \
   crypto/poly1305.cpp \
   crypto/ripemd160.cpp \
   crypto/aes_helper.c \
-  crypto/blake.c \
-  crypto/bmw.c \
-  crypto/cubehash.c \
-  crypto/echo.c \
-  crypto/groestl.c \
-  crypto/jh.c \
-  crypto/keccak.c \
-  crypto/luffa.c \
-  crypto/shavite.c \
-  crypto/simd.c \
-  crypto/skein.c \
-  crypto/sph_hamsi.c \
-  crypto/sph_hamsi_helper.c \
-  crypto/sph_fugue.c \
-  crypto/sph_shabal.c \
-  crypto/sph_whirlpool.c \
-  crypto/sph_sha2.c \
-  crypto/sph_sha512.c \
   crypto/ripemd160.h \
   crypto/sha1.cpp \
   crypto/sha1.h \
   crypto/sha256.cpp \
   crypto/sha256.h \
-  crypto/sph_blake.h \
-  crypto/sph_bmw.h \
-  crypto/sph_cubehash.h \
-  crypto/sph_echo.h \
-  crypto/sph_groestl.h \
-  crypto/sph_jh.h \
-  crypto/sph_keccak.h \
-  crypto/sph_luffa.h \
-  crypto/sph_shavite.h \
-  crypto/sph_simd.h \
-  crypto/sph_skein.h \
-  crypto/sph_hamsi.h \
-  crypto/sph_fugue.h \
-  crypto/sph_shabal.h \
-  crypto/sph_whirlpool.h \
-  crypto/sph_sha2.h \
-  crypto/sph_types.h \
   crypto/sha512.cpp \
-  cryptonote/aesb.c \
-  cryptonote/c_blake256.c \
-  cryptonote/c_groestl.c \
-  cryptonote/c_jh.c \
-  cryptonote/c_keccak.c \
-  cryptonote/c_skein.c \
-  cryptonote/slow-hash.c \
-  cryptonote/hash-ops.c \
-  cryptonote/oaes_lib.c \
-  cryptonote/wild_keccak.cpp \
-  cryptonote/c_blake256.h \
-  cryptonote/c_groestl.h \
-  cryptonote/c_jh.h \
-  cryptonote/c_keccak.h \
-  cryptonote/crypto.h \
-  cryptonote/c_skein.h \
-  cryptonote/groestl_tables.h \
-  cryptonote/slow-hash.h \
-  cryptonote/int-util.h \
-  cryptonote/oaes_config.h \
-  cryptonote/hash-ops.h \
-  cryptonote/oaes_lib.h \
-  cryptonote/skein_port.h \
-  cryptonote/variant2_int_sqrt.h \
-  cryptonote/wild_keccak.h \
-  cryptonote/warnings.h \
-  crypto/sha512.h
+  crypto/sha512.h \
+  crypto/pow/sph_blake.h \
+  crypto/pow/sph_cubehash.h \
+  crypto/pow/sph_echo.h \
+  crypto/pow/sph_fugue.h \
+  crypto/pow/sph_groestl.h \
+  crypto/pow/sph_hamsi.h \
+  crypto/pow/sph_haval.h \
+  crypto/pow/sph_jh.h \
+  crypto/pow/sph_keccak.h \
+  crypto/pow/sph_luffa.h \
+  crypto/pow/sph_sha2.h \
+  crypto/pow/sph_sha2big.c \
+  crypto/pow/sph_shabal.h \
+  crypto/pow/sph_shavite.h \
+  crypto/pow/sph_simd.h \
+  crypto/pow/sph_skein.h \
+  crypto/pow/sph_types.h \
+  crypto/pow/sph_whirlpool.h \
+  crypto/pow/bmw.c \
+  crypto/pow/whirlpool.c \
+  crypto/pow/Sponge.h \
+  crypto/pow/blake.c \
+  crypto/pow/blake2.h \
+  crypto/pow/blake2-impl.h \
+  crypto/pow/blake2s-ref.c \
+  crypto/pow/cubehash.c \
+  crypto/pow/echo.c \
+  crypto/pow/fugue.c \
+  crypto/pow/groestl.c \
+  crypto/pow/hamsi.c \
+  crypto/pow/hashblake.h \
+  crypto/pow/hashgroestl.h \
+  crypto/pow/hashquark.h \
+  crypto/pow/hashqubit.h \
+  crypto/pow/hashskein.h \
+  crypto/pow/hashx11.h \
+  crypto/pow/hashx13.h \
+  crypto/pow/hashx15.h \
+  crypto/pow/hashx17.h \
+  crypto/pow/haval.c \
+  crypto/pow/jh.c \
+  crypto/pow/keccak.c \
+  crypto/pow/luffa.c \
+  crypto/pow/Lyra2.c \
+  crypto/pow/Lyra2.h \
+  crypto/pow/Lyra2RE.c \
+  crypto/pow/Lyra2RE.h \
+  crypto/pow/scrypt.cpp \
+  crypto/pow/scrypt.h \
+  crypto/pow/shabal.c \
+  crypto/pow/shavite.c \
+  crypto/pow/simd.c \
+  crypto/pow/skein.c \
+  crypto/pow/Sponge.c \
+  crypto/pow/sph_bmw.h
 
 if USE_ASM
 crypto_libdatromax_crypto_base_a_SOURCES += crypto/sha256_sse4.cpp

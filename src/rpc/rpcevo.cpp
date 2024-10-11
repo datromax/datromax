@@ -1,5 +1,5 @@
 // Copyright (c) 2018-2021 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1139,7 +1139,7 @@ UniValue createConfigFile(string blsPrivateKey, string ip, string address) {
 	string password = generateRandomString(20, true);
 	configFile << "rpcuser=" << username << endl;
 	configFile << "rpcpassword=" << password << endl;
-	configFile << "rpcport=8484\n";
+	configFile << "rpcport=15290\n";
 	configFile << "rpcallowip=127.0.0.1\n";
 	configFile << "server=1\n";
 	configFile << "daemon=1\n";

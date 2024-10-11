@@ -44,8 +44,8 @@ const std::string CLIENT_NAME("Datromax Core");
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "41803f02d65b8de7ec12b99baaad6902c0e4ff73"
-#define GIT_COMMIT_DATE "Sat, 10 Sep 2022 17:15:04 -0700"
+#define GIT_COMMIT_ID "0f6029c14"
+#define GIT_COMMIT_DATE "Wed, 22 Sep 2024 14:43:56 -0700"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \
@@ -55,7 +55,7 @@ const std::string CLIENT_NAME("Datromax Core");
     "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
 
 #define BUILD_DESC_FROM_UNKNOWN(maj, min, rev, build) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-sun"
 
 #ifndef BUILD_DESC
 #ifdef BUILD_SUFFIX

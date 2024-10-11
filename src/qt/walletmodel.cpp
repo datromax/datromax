@@ -312,7 +312,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction &tran
         {
             if (rcp.paymentRequest.IsInitialized())
             {
-                // Make sure any payment requests involved are still valid.
+                // Make sure any payment requests idatromaxd are still valid.
                 if (PaymentServer::verifyExpired(rcp.paymentRequest.getDetails())) {
                     return PaymentRequestExpired;
                 }

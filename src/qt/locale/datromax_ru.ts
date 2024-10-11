@@ -3871,7 +3871,7 @@ https://www.transifex.com/projects/p/datromax/</translation>
       <translation>Тип транзакции.</translation>
     </message>
     <message>
-      <source>Whether or not a watch-only address is involved in this transaction.</source>
+      <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
       <translation>Участвовал ли адрес для просмотра в этой транзакции.</translation>
     </message>
     <message>

@@ -19,7 +19,7 @@ uint256 CBlockHeader::GetHash() const
 
 uint256 CBlockHeader::ComputeHash() const
 {
-
+    // return HashKeccak(BEGIN(nVersion), END(nNonce));
     return HashBlake(BEGIN(nVersion), END(nNonce));
     
 }

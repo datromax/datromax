@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1601,7 +1601,7 @@ UniValue ListReceived(CWallet * const pwallet, const UniValue& params, bool by_l
         {
             UniValue obj(UniValue::VOBJ);
             if(fIsWatchonly)
-                obj.pushKV("involvesWatchonly", true);
+                obj.pushKV("idatromaxsWatchonly", true);
             obj.pushKV("address",       EncodeDestination(address));
             obj.pushKV("account",       label);
             obj.pushKV("amount",        ValueFromAmount(nAmount));
@@ -1628,7 +1628,7 @@ UniValue ListReceived(CWallet * const pwallet, const UniValue& params, bool by_l
             int nConf = entry.second.nConf;
             UniValue obj(UniValue::VOBJ);
             if (entry.second.fIsWatchonly)
-                obj.pushKV("involvesWatchonly", true);
+                obj.pushKV("idatromaxsWatchonly", true);
             obj.pushKV("account",       entry.first);
             obj.pushKV("amount",        ValueFromAmount(nAmount));
             obj.pushKV("confirmations", (nConf == std::numeric_limits<int>::max() ? 0 : nConf));
@@ -1662,7 +1662,7 @@ UniValue listreceivedbyaddress(const JSONRPCRequest& request)
             "\nResult:\n"
             "[\n"
             "  {\n"
-            "    \"involvesWatchonly\" : true,        (bool) Only returned if imported addresses were involved in transaction\n"
+            "    \"idatromaxsWatchonly\" : true,        (bool) Only returned if imported addresses were idatromaxd in transaction\n"
             "    \"address\" : \"receivingaddress\",    (string) The receiving address\n"
             "    \"account\" : \"accountname\",         (string) Backwards compatible alias for label.\n"
             "    \"amount\" : x.xxx,                  (numeric) The total amount in " + CURRENCY_UNIT + " received by the address\n"
@@ -1723,7 +1723,7 @@ UniValue listreceivedbylabel(const JSONRPCRequest& request)
             "\nResult:\n"
             "[\n"
             "  {\n"
-            "    \"involvesWatchonly\" : true,   (bool) Only returned if imported addresses were involved in transaction\n"
+            "    \"idatromaxsWatchonly\" : true,   (bool) Only returned if imported addresses were idatromaxd in transaction\n"
             "    \"account\" : \"accountname\",    (string) DEPRECATED. Backwards compatible alias for label.\n"
             "    \"amount\" : x.xxx,             (numeric) The total amount received by addresses with this label\n"
             "    \"confirmations\" : n           (numeric) The number of blockchain confirmations of the most recent transaction included\n"
@@ -1775,7 +1775,7 @@ void ListTransactions(CWallet * const pwallet, const CWalletTx& wtx, const std::
     wtx.GetAmounts(listReceived, listSent, nFee, strSentAccount, filter);
 
     bool fAllAccounts = (strAccount == std::string("*"));
-    bool involvesWatchonly = wtx.IsFromMe(ISMINE_WATCH_ONLY);
+    bool idatromaxsWatchonly = wtx.IsFromMe(ISMINE_WATCH_ONLY);
 
     bool list_sent = fAllAccounts;
 
@@ -1788,8 +1788,8 @@ void ListTransactions(CWallet * const pwallet, const CWalletTx& wtx, const std::
         for (const COutputEntry& s : listSent)
         {
             UniValue entry(UniValue::VOBJ);
-            if (involvesWatchonly || (::IsMine(*pwallet, s.destination) & ISMINE_WATCH_ONLY)) {
-                entry.pushKV("involvesWatchonly", true);
+            if (idatromaxsWatchonly || (::IsMine(*pwallet, s.destination) & ISMINE_WATCH_ONLY)) {
+                entry.pushKV("idatromaxsWatchonly", true);
             }
             if (IsDeprecatedRPCEnabled("accounts")) entry.pushKV("account", strSentAccount);
             MaybePushAddress(entry, s.destination);
@@ -1820,8 +1820,8 @@ void ListTransactions(CWallet * const pwallet, const CWalletTx& wtx, const std::
             if (fAllAccounts || (account == strAccount))
             {
                 UniValue entry(UniValue::VOBJ);
-                if (involvesWatchonly || (::IsMine(*pwallet, r.destination) & ISMINE_WATCH_ONLY)) {
-                    entry.pushKV("involvesWatchonly", true);
+                if (idatromaxsWatchonly || (::IsMine(*pwallet, r.destination) & ISMINE_WATCH_ONLY)) {
+                    entry.pushKV("idatromaxsWatchonly", true);
                 }
                 if (IsDeprecatedRPCEnabled("accounts")) entry.pushKV("account", account);
                 MaybePushAddress(entry, r.destination);
@@ -2345,8 +2345,8 @@ UniValue gettransaction(const JSONRPCRequest& request)
             "  \"timereceived\" : ttt,    (numeric) The time received in seconds since epoch (1 Jan 1970 GMT)\n"
             "  \"details\" : [\n"
             "    {\n"
-            "      \"account\" : \"accountname\",      (string) DEPRECATED. This field will be removed in V0.18. To see this deprecated field, start datromaxd with -deprecatedrpc=accounts. The account name involved in the transaction, can be \"\" for the default account.\n"
-            "      \"address\" : \"address\",          (string) The datromax address involved in the transaction\n"
+            "      \"account\" : \"accountname\",      (string) DEPRECATED. This field will be removed in V0.18. To see this deprecated field, start datromaxd with -deprecatedrpc=accounts. The account name idatromaxd in the transaction, can be \"\" for the default account.\n"
+            "      \"address\" : \"address\",          (string) The datromax address idatromaxd in the transaction\n"
             "      \"category\" : \"send|receive\",    (string) The category, either 'send' or 'receive'\n"
             "      \"amount\" : x.xxx,               (numeric) The amount in " + CURRENCY_UNIT + "\n"
             "      \"label\" : \"label\",              (string) A comment for the address/transaction, if any\n"

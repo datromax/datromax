@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -579,7 +579,7 @@ std::string ArgsManager::GetHelpMessage()
             else if (last_cat == OptionsCategory::INDEXING)
                 usage += HelpMessageGroup("Indexing options:");
             else if (last_cat == OptionsCategory::SMARTNODE)
-                usage += HelpMessageGroup("Masternode options:");
+                usage += HelpMessageGroup("Smartnode options:");
             else if (last_cat == OptionsCategory::STATSD)
                 usage += HelpMessageGroup("Statsd options:");
             else if (last_cat == OptionsCategory::ZMQ)
@@ -838,7 +838,6 @@ std::string ArgsManager::GetChainName() const
         std::cout<< CBaseChainParams::TESTNET << "\n";
         return CBaseChainParams::TESTNET;
     }
-    std::cout<< CBaseChainParams::MAIN << "\n";
     return CBaseChainParams::MAIN;
 }
 

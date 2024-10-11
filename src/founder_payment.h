@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The Datromax developer
+ * Copyright (c) 2020 The Raptoreum developer
  * Distributed under the MIT software license, see the accompanying
  * file COPYING or http://www.opensource.org/licenses/mit-license.php.
  * 
@@ -18,7 +18,7 @@
 #include <limits.h>
 using namespace std;
 
-static const string DEFAULT_FOUNDER_ADDRESS = "RTtyQU6DoSuNWetT4WUem5qXP5jNYGpwat";
+static const string DEFAULT_FOUNDER_ADDRESS = "DT9L7gcHM7tkTi5sChuisi1zhWVEpY9JUP";
 struct FounderRewardStructure {
 	int blockHeight;
 	int rewardPercentage;

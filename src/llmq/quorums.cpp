@@ -1,5 +1,5 @@
 // Copyright (c) 2018-2019 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -704,8 +704,9 @@ void CQuorumManager::ProcessMessage(CNode* pFrom, const std::string& strCommand,
 
             BLSSecretKeyVector vecSecretKeys;
             vecSecretKeys.resize(vecEncrypted.size());
+            int minSmartnodeProtoVersion =  Params().IsFutureActive(chainActive.Tip()) ? MIN_SMARTNODE_PROTO_VERSION : OLD_MIN_SMARTNODE_PROTO_VERSION;
             for (size_t i = 0; i < vecEncrypted.size(); ++i) {
-                if (!vecEncrypted[i].Decrypt(memberIdx, *activeSmartnodeInfo.blsKeyOperator, vecSecretKeys[i], PROTOCOL_VERSION)) {
+                if (!vecEncrypted[i].Decrypt(memberIdx, *activeSmartnodeInfo.blsKeyOperator, vecSecretKeys[i], minSmartnodeProtoVersion)) {
                     errorHandler("Failed to decrypt");
                     return;
                 }

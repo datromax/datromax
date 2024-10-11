@@ -4903,8 +4903,8 @@ https://www.transifex.com/projects/p/datromax/</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Whether or not a watch-only address is involved in this transaction.</source>
-        <translation>Whether or not a watch-only address is involved in this transaction.</translation>
+        <source>Whether or not a watch-only address is idatromaxd in this transaction.</source>
+        <translation>Whether or not a watch-only address is idatromaxd in this transaction.</translation>
     </message>
     <message>
         <location line="+2"/>
