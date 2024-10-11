@@ -6,6 +6,7 @@
 #include <hash.h>
 #include <primitives/block.h>
 #include <primitives/powcache.h>
+#include <crypto/pow/hashblake.h>
 #include <sync.h>
 #include <uint256.h>
 #include <util.h>
@@ -18,7 +19,9 @@ uint256 CBlockHeader::GetHash() const
 
 uint256 CBlockHeader::ComputeHash() const
 {
-    return HashGR(BEGIN(nVersion), END(nNonce), hashPrevBlock);
+
+    return HashBlake(BEGIN(nVersion), END(nNonce));
+    
 }
 
 uint256 CBlockHeader::GetPOWHash(bool readCache) const

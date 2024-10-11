@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2021 The Dash Core developers
-// Copyright (c) 2020-2022 The Datromax developers
+// Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -834,7 +834,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
         // check special TXs after all the other checks. If we'd do this before the other checks, we might end up
         // DoS scoring a node for non-critical errors, e.g. duplicate keys because a TX is received that was already
         // mined
-        // NOTE: we use UTXO here and do NOT allow mempool txes as masternode collaterals
+        // NOTE: we use UTXO here and do NOT allow mempool txes as smartnode collaterals
         if (!CheckSpecialTx(tx, chainActive.Tip(), state, *pcoinsTip.get()))
             return false;
         if (pool.existsProviderTxConflict(tx)) {
@@ -1182,8 +1182,8 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
         might be a good idea to change this to use prev bits
         but current height to avoid confusion.
 */
-CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
-{
+CAmount
+GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params &consensusParams, bool fSuperblockPartOnly) {
     // if (Params().NetworkIDString() == "main") {
     //     std::cout << "This is Testnet only build" << endl;
     //     exit(1);
@@ -1193,32 +1193,32 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     int multiplier;              // integer number of owlings
     int tempHeight;              // number of blocks since last anchor
     if (nPrevHeight < 720) {
-        nSubsidy = 4;
+        nSubsidy = Params().NetworkIDString() == CBaseChainParams::TESTNET ? 20000 : 4;
     } else if ((nPrevHeight > 553531) && (nPrevHeight < 2105657)) {
         tempHeight = nPrevHeight - 553532;
         multiplier = tempHeight / owlings;
         nSubsidy -= (multiplier * 10 + 10);
-    } else if ((nPrevHeight > 2105657) && (nPrevHeight < 5273695)) {
-        tempHeight = nPrevHeight - 2105658;
+    } else if ((nPrevHeight >= 2105657) && (nPrevHeight < 5273695)) {
+        tempHeight = nPrevHeight - 2105657;
         multiplier = tempHeight / owlings;
         nSubsidy -= (multiplier * 20 + 750);
-    } else if ((nPrevHeight > 5273695) && (nPrevHeight < 7378633)) {
-        tempHeight = nPrevHeight - 5273696;
+    } else if ((nPrevHeight >= 5273695) && (nPrevHeight < 7378633)) {
+        tempHeight = nPrevHeight - 5273695;
         multiplier = tempHeight / owlings;
         nSubsidy -= (multiplier * 10 + 3720);
-    } else if ((nPrevHeight > 7378633) && (nPrevHeight < 8399209)) {
-        tempHeight = nPrevHeight - 7378634;
+    } else if ((nPrevHeight >= 7378633) && (nPrevHeight < 8399209)) {
+        tempHeight = nPrevHeight - 7378633;
         multiplier = tempHeight / owlings;
         nSubsidy -= (multiplier * 5 + 4705);
-    } else if ((nPrevHeight > 8399209) && (nPrevHeight < 14735285)) {
+    } else if ((nPrevHeight >= 8399209) && (nPrevHeight < 14735285)) {
         nSubsidy = 55;
-    } else if ((nPrevHeight > 14735285) && (nPrevHeight < 15798385)) {
-        tempHeight = nPrevHeight - 14735286;
+    } else if ((nPrevHeight >= 14735285) && (nPrevHeight < 15798385)) {
+        tempHeight = nPrevHeight - 14735285;
         multiplier = tempHeight / owlings;
         nSubsidy -= (multiplier + 4946);
-    } else if ((nPrevHeight > 15798385) && (nPrevHeight < 25844304)) {
+    } else if ((nPrevHeight >= 15798385) && (nPrevHeight < 25844304)) {
         nSubsidy = 5;
-    } else if (nPrevHeight > 125844304) {
+    } else if (nPrevHeight >= 25844304) {
         nSubsidy = 0.001;
     }
     return nSubsidy * COIN;
