@@ -1,4 +1,5 @@
 // Copyright (c) 2018-2019 The Dash Core developers
+// Copyright (c) 2020-2024 The Raptoreum developers
 // Copyright (c) 2023-2024 The Datromax developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
