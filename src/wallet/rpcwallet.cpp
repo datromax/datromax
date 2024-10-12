@@ -535,11 +535,11 @@ UniValue sendtoaddress(const JSONRPCRequest& request)
             "\nResult:\n"
             "\"txid\"                  (string) The transaction id.\n"
             "\nExamples:\n"
-            + HelpExampleCli("sendtoaddress", "\"RwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" 0.1")
-            + HelpExampleCli("sendtoaddress", "\"RwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" 0.1 '{\"future_maturity\":100, \"future_locktime\": 10000}'")
-            + HelpExampleCli("sendtoaddress", "\"RwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" 0.1 \"donation\" \"seans outpost\"")
-            + HelpExampleCli("sendtoaddress", "\"RwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\" 0.1 \"\" \"\" true")
-            + HelpExampleRpc("sendtoaddress", "\"RwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwG\", 0.1, \"donation\", \"seans outpost\"")
+            + HelpExampleCli("sendtoaddress", "\"DG6ze9AwFLQLUCUHBLj6a5wnDMkV11e3EZ\" 0.1")
+            + HelpExampleCli("sendtoaddress", "\"DG6ze9AwFLQLUCUHBLj6a5wnDMkV11e3EZ\" 0.1 '{\"future_maturity\":100, \"future_locktime\": 10000}'")
+            + HelpExampleCli("sendtoaddress", "\"DG6ze9AwFLQLUCUHBLj6a5wnDMkV11e3EZ\" 0.1 \"donation\" \"seans outpost\"")
+            + HelpExampleCli("sendtoaddress", "\"DG6ze9AwFLQLUCUHBLj6a5wnDMkV11e3EZ\" 0.1 \"\" \"\" true")
+            + HelpExampleRpc("sendtoaddress", "\"DG6ze9AwFLQLUCUHBLj6a5wnDMkV11e3EZ\", 0.1, \"donation\", \"seans outpost\"")
         );
 
     // Make sure the results are valid at least up to the most recent block

@@ -629,7 +629,12 @@ public:
 
         checkpointData = {
           {  
-
+            { 0, uint256S("0x0000084064a6556da63fdb52936c1504154eb0b9765477c238625529dea2dcf7")},
+            { 100, uint256S("0x6e89c19e0260e09f0e01c440e7ca1b094b6e6eeb174b152bcc0e9bc80cef3a5d")},
+            { 200, uint256S("0x7218b3102b55ca9274949beeb5d5ff0cfff4d181a9dabda009c8cf14dbc7eed9")},
+            { 400, uint256S("0x71d0c11f0e52ac1126dcbb9ffed5c6dd27966143b6ce01ab62f413031059612b")},
+            { 600, uint256S("0xca62aa8082ed3581c90515d958b533baddf957cfb0432712d5e9ae70def93876")},
+            { 700, uint256S("0xa68e393e21f772e61f8a7a127acd1711246632e6dce9b47c1ef80c2c4a95ceb4b")},
           }
         };
 
